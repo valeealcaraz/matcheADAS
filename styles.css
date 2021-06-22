@@ -4,13 +4,14 @@ body {
     justify-content: center;
     background-image: url(assets/Fondo.png);
     background-size: cover;
+    padding-top: 7%
 }
 
 
 .board {
     height: 504px;
     width: 504px;
-    background-color: aqua;
+    background-color: transparent;
     display: flex;
     flex-wrap: wrap;
 }
