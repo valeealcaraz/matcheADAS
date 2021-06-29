@@ -27,7 +27,6 @@ const select = e => {
 
         targetsArray[0].innerHTML = itemClicked[1];
         targetsArray[1].innerHTML = itemClicked[0];
-        console.log(targetsArray[1])
     }       
     else if (itemClicked.length===2) {    
         for(let i=0; i<itemClicked.length ; i++) {
@@ -41,39 +40,31 @@ const select = e => {
     }
 }
 
-
-
-
-
-
-
-
-
-
  // MOVIMIENTOS PERMITIDOS EN NIVEL DIFICIL
 
 
-
-
-// const select = e => {
-//     let moveAllow = [];
-//     let matchMove = true;
-    
-//     for (let i=0 ; i<49 ; i++) {
-//         let idItem = document.getElementById("i");
-//         moveAllow.push([idItem-1,idItem+1,idItem-7,idItem+7]);
-//         console.log('moveAllow')
-//     }
-//     moveAllow;
-//     // if(!matchMove) {
-//     //     return
-//     // } else if (moveAllow.includes()){
-        
-
-//     // }
-//     //     e.target.classList.add("selected");
  
+let matchMove = true;
+
+for (let i=0 ; i<width ; i++) {
+     
+    let movAllow = [id-1,id+1,id-width,id+width];
+    let idItem = document.getElementById("i");
+    if (movAllow.includes(id))
     
-//     console.log("ok")
+
+    
+}
+moveAllow;
+// if(!matchMove) {
+//     return
+// } else if (moveAllow.includes()){
+    
+
 // }
+//     e.target.classList.add("selected");
+
+
+console.log("ok")
+}
 
