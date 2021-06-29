@@ -1,39 +1,65 @@
 
 const divTimer = document.getElementById("timer");
+divTimer.classList.add("display-none");
+divTimer.classList.add("timer");
+
 const timerIconDiv = document.createElement("div");
-const timerIcon = document.createElement("i")
+timerIconDiv.classList.add("flex-center50");
+timerIconDiv.classList.add("flex-center50");
+
+const timerIcon = document.createElement("i");
+timerIcon.classList.add("fas");
+timerIcon.classList.add("fa-hourglass-half");
+
 const timerSpan = document.createElement("span");
+timerSpan.classList.add("flex-center50");
 
-const crearCronometro = tiempo => {
-    let text = "00:00";
-    const timerSpanText = document.createTextNode(text);
-    timerSpan.appendChild(timerSpanText);
-
-    for (let i=10 ; i>=tiempo ; i++) {
-        setInterval(() => {
-            return tiempo
-        }, 1000);
-    }
-
-}
-
-crearCronometro(30)
-
-
-
-
+let gameTime = 5;
+let timerSpanText = document.createTextNode(gameTime);
 
 document.body.appendChild(divTimer);
 divTimer.appendChild(timerIconDiv);
 timerIconDiv.appendChild(timerIcon);
 divTimer.appendChild(timerSpan);
 
-divTimer.classList.add("timer")
-timerIconDiv.classList.add("flex-center50")
-timerIconDiv.classList.add("flex-center50")
-timerIcon.classList.add("fas")
-timerIcon.classList.add("fa-hourglass-half")
-timerSpan.classList.add("flex-center50")
+
+const createChrono = () => {
+    divTimer.classList.remove("display-none");
+    timerSpan.appendChild(timerSpanText);
+}
+
+const endGame = () => {
+    swal("Fin de la partida", "Gracias por participar", {
+        buttons: {
+            end: "Finalizar la partida",
+            again: "Jugar de nuevo",
+        },
+    })
+        .then((value) => {
+            switch (value) {
+                case "again":
+                    timerSpan.innerHTML = " "
+                    gameTime = 5;
+                    createChrono();
+                    gameCountdown();
+                    break;
+                case "end":
+                    window.close();;
+                    break;
+            }
+        });
+}
+
+const gameCountdown = () => {
+    let chronometer = setInterval(() => {
+        console.log(gameTime--);
+        timerSpan.innerHTML = `${gameTime}`;
+        if (gameTime == 0) {
+            clearInterval(chronometer)
+        }
+    }, 1000);
+    setTimeout(endGame, gameTime * 1000);
+}
 
 
 
