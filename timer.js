@@ -24,6 +24,7 @@ divTimer.appendChild(timerSpan);
 
 const createChrono = () => {
     divTimer.classList.remove("display-none");
+    divScore.classList.remove("display-none");
     timerSpan.appendChild(timerSpanText);
 }
 

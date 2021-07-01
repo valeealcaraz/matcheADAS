@@ -14,11 +14,11 @@ const hMatch = () => {
         if ( //noMatch === twoMatch && noMatch === threeMatch && noMatch === fourMatch && noMatch === fiveMatch  || 
             // noMatch === twoMatch && noMatch === threeMatch && noMatch === fourMatch || 
             noMatch === twoMatch && noMatch === threeMatch) {
-                score = score + 100;
-                noMatch.style.backgroundColor = "#FFF";
-                console.log("hay bloque horizontal");
-            // console.log(score);
-
+            scoreAdd()
+            console.log("hay bloque horizontal");
+            itemsArray[i].textContent = " ";
+            itemsArray[i+1].textContent = " ";
+            itemsArray[i+2].textContent = " ";
         }
     }
 }
@@ -31,9 +31,11 @@ const vMatch = () => {
         let thirdColumn = itemsArray[i + 14].textContent;
 
         if (firstColumn === secondColumn && firstColumn === thirdColumn) {
-            score = score + 100
+            scoreAdd()
             console.log("hay bloque vertical");
-            // console.log(score);
+            itemsArray[i].textContent = " ";
+            itemsArray[i+7].textContent = " ";
+            itemsArray[i+14].textContent = " ";
         }
     }
 }
