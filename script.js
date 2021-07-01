@@ -30,6 +30,4 @@ const createBoard = width => {
     
 createBoard()
 
-// MOVIMIENTOS PERMITIDOS EN NIVEL DIFICIL  
      
-       // let moveAllow = [id-1,id+1,id-width,id+width];
