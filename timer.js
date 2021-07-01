@@ -14,7 +14,7 @@ timerIcon.classList.add("fa-hourglass-half");
 const timerSpan = document.createElement("span");
 timerSpan.classList.add("flex-center50");
 
-let gameTime = 5;
+let gameTime = 60;
 let timerSpanText = document.createTextNode(gameTime);
 
 document.body.appendChild(divTimer);
@@ -25,6 +25,7 @@ divTimer.appendChild(timerSpan);
 
 const createChrono = () => {
     divTimer.classList.remove("display-none");
+    divScore.classList.remove("display-none");
     timerSpan.appendChild(timerSpanText);
 }
 
@@ -39,7 +40,7 @@ const endGame = () => {
             switch (value) {
                 case "again":
                     timerSpan.innerHTML = " "
-                    gameTime = 5;
+                    gameTime = 60;
                     createChrono();
                     gameCountdown();
                     break;
