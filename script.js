@@ -30,8 +30,6 @@ const createBoard = width => {
         item.addEventListener("click", select) 
         
     }   
-    // hMatch()
-    // vMatch()
 }
     
 createBoard()

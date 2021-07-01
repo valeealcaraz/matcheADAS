@@ -1,4 +1,4 @@
-let score = 0;
+
 
 /* Arreglar las posiciones no validas */
 
