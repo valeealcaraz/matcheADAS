@@ -1,4 +1,4 @@
-
+let score = 0;
 
 /* Arreglar las posiciones no validas */
 
@@ -12,19 +12,16 @@ const hMatch = () => {
         // let fiveMatch = itemsArray[i+4].textContent;
 
         if ( //noMatch === twoMatch && noMatch === threeMatch && noMatch === fourMatch && noMatch === fiveMatch  || 
-            //noMatch === twoMatch && noMatch === threeMatch && noMatch === fourMatch || 
+            // noMatch === twoMatch && noMatch === threeMatch && noMatch === fourMatch || 
             noMatch === twoMatch && noMatch === threeMatch) {
-            scoreAdd()
-            console.log("hay bloque horizontal");
-            itemsArray[i].textContent = " ";
-            itemsArray[i+1].textContent = " ";
-            itemsArray[i+2].textContent = " ";
+                score = score + 100;
+                noMatch.style.backgroundColor = "#FFF";
+                console.log("hay bloque horizontal");
+            // console.log(score);
+
         }
     }
 }
-
-/* Como hacemos que sea reutilizable la funcion (sin width) */
-
 
 const vMatch = () => {
 
@@ -34,11 +31,9 @@ const vMatch = () => {
         let thirdColumn = itemsArray[i + 14].textContent;
 
         if (firstColumn === secondColumn && firstColumn === thirdColumn) {
-            scoreAdd()
+            score = score + 100
             console.log("hay bloque vertical");
-            itemsArray[i].textContent = " ";
-            itemsArray[i+7].textContent = " ";
-            itemsArray[i+14].textContent = " ";
+            // console.log(score);
         }
     }
 }
