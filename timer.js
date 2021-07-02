@@ -13,7 +13,7 @@ timerIcon.classList.add("fa-hourglass-half");
 const timerSpan = document.createElement("span");
 timerSpan.classList.add("flex-center50");
 
-let gameTime = 20;
+let gameTime = 100;
 let timerSpanText = document.createTextNode(gameTime);
 
 document.body.appendChild(divTimer);
@@ -39,7 +39,7 @@ const endGame = () => {
             switch (value) {
                 case "again":
                     timerSpan.innerHTML = " "
-                    gameTime = 20;
+                    gameTime = 100;
                     createChrono();
                     gameCountdown();
                     break;

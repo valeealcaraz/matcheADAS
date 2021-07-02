@@ -1,38 +1,41 @@
-/****
+/*************
 * 
 * CALLBACK DEL EVENTO ONCLICK
 * 
-****/  
+*************/  
 
-let itemClicked = [];  // lista de data-value capturados al hacer click
+let itemClicked = [];  // lista de text-content capturados al hacer click
 let targetsArray = []; // lista de target capturados al hacer click (div item)
 let oldValue;
 let newValue;
 
+// Esto lo declaramos como variable universal para tener el ancho de nuestro tablero disponible (que inicialmente está en el scope de la función createBoard). Antes funcionaba, ahora ya no :(
+let widthUsable = Math.sqrt(itemsArray.length); 
+
 const select = e => {
-    let dataValue = e.target.getAttribute("data-value");
-    let widthUsable = Math.sqrt(itemsArray.length);
+    let targetContent = e.target.textContent;
     let idItem = parseInt(e.target.getAttribute("id"));
     let movAllow = [idItem-1,idItem+1,idItem-widthUsable,idItem+widthUsable];
     //primer click
     if(itemClicked.length===0) {
         e.target.classList.add("selected");
-        itemClicked.push(dataValue);
+        itemClicked.push(targetContent);
         targetsArray.push(e.target);
     } 
     //segundo click
     else if (itemClicked.length===1){
+        let firstItemId = parseInt(targetsArray[0].getAttribute("id"));
+      
         e.target.classList.add("selected");
-        itemClicked.push(dataValue);
+        itemClicked.push(targetContent);
         targetsArray.push(e.target);
         
-        let firstItem = parseInt(targetsArray[0].getAttribute("id"));
-
-        if(movAllow.includes(firstItem)) {
+        if(movAllow.includes(firstItemId)) {
             targetsArray[0].innerHTML = itemClicked[1];
             targetsArray[1].innerHTML = itemClicked[0];
             console.log('ok')
-        }else{
+        }
+        else{
             targetsArray[0].classList.remove("selected");
             console.log('no')
         }
@@ -45,13 +48,11 @@ const select = e => {
         e.target.classList.add("selected");       
         itemClicked = [];
         targetsArray = [];
-        itemClicked.push(dataValue); 
+        itemClicked.push(targetContent); 
         targetsArray.push(e.target);                   
     }
+    hMatch3()
+    // vMatch()
 }
 
 
-window.setInterval(function(){
-    hMatch()
-    vMatch()
-},5000)

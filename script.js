@@ -25,7 +25,7 @@ const createBoard = width => {
         item.style.height = `${itemWidth}px`;
         item.style.fontSize = `${itemWidth/1.5}px`;
         
-        item.setAttribute("data-value",animalRandom);
+        // item.setAttribute("data-value",animalRandom);
         item.setAttribute("id",i);
         item.addEventListener("click", select) 
         
