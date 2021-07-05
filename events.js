@@ -6,16 +6,17 @@
 
 let itemClicked = [];  // lista de text-content capturados al hacer click
 let targetsArray = []; // lista de target capturados al hacer click (div item)
-let oldValue;
-let newValue;
+let idItems = [];
+let widthUsable;
 
 // Esto lo declaramos como variable universal para tener el ancho de nuestro tablero disponible (que inicialmente está en el scope de la función createBoard). Antes funcionaba, ahora ya no :(
-let widthUsable = Math.sqrt(itemsArray.length); 
-
+    
 const select = e => {
+    widthUsable = Math.sqrt(itemsArray.length); 
     let targetContent = e.target.textContent;
     let idItem = parseInt(e.target.getAttribute("id"));
     let movAllow = [idItem-1,idItem+1,idItem-widthUsable,idItem+widthUsable];
+    idItems.push(idItem);
     //primer click
     if(itemClicked.length===0) {
         e.target.classList.add("selected");
@@ -31,14 +32,17 @@ const select = e => {
         targetsArray.push(e.target);
         
         if(movAllow.includes(firstItemId)) {
-            targetsArray[0].innerHTML = itemClicked[1];
-            targetsArray[1].innerHTML = itemClicked[0];
-            console.log('ok')
+            intercambio();
+            actualizador();
+            hMatch()
+            // console.log(itemsArray)
+            // console.log(idItems[0])
         }
         else{
             targetsArray[0].classList.remove("selected");
             console.log('no')
         }
+        idItems = []
     } 
     //tercer click      
     else if (itemClicked.length===2) {    
@@ -51,7 +55,6 @@ const select = e => {
         itemClicked.push(targetContent); 
         targetsArray.push(e.target);                   
     }
-    hMatch3()
     // vMatch()
 }
 

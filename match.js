@@ -8,26 +8,60 @@
 
 // Caso 3 coincidencias HORIZONTALES:
 
+const intercambio = () => {
+    targetsArray[0].innerHTML = itemClicked[1];
+    targetsArray[1].innerHTML = itemClicked[0];
+}
 
-const hMatch3 = () => {
-      
+const actualizador = () => {
+    console.log('test', targetsArray[0], targetsArray[0].id);
+
+    for(let i = 0; i < itemsArray.length; i = i + 8) {
+        for(let j = i; j < 8; j++) {
+            console.log(itemsArray[i][j])
+        }
+        console.log('---------------------------');
+    }
+    /*for(let i=0 ; i<itemsArray.length ; i++){
+        if(targetsArray[0])
+    }*/
+    itemsArray.splice(itemsArray[idItems[0]],2,targetsArray[0],targetsArray[1]);
+}
+
+// let matches = [];
+const hMatch = () => {
+        
+    console.log(itemsArray)
     for (let i = 0; i < itemsArray.length - 2; i++) {
-
         let noMatch = itemsArray[i].textContent;
         let twoMatch = itemsArray[i + 1].textContent;
         let threeMatch = itemsArray[i + 2].textContent;
-        
-        if(noMatch === twoMatch && noMatch === threeMatch) {
-            scoreAdd()
+        if(noMatch === twoMatch && noMatch === threeMatch) {            
             itemsArray[i].textContent = " ";
             itemsArray[i + 1].textContent = " ";
             itemsArray[i + 2].textContent = " ";                   
             console.log("hay bloque horizontal");
+            scoreAdd()
+            // matches.push(noMatch,twoMatch,threeMatch)
         }
-    }
-}
 
-// for (let i = 0; i < divs.length - 2; i+widthUsable) {
+    }
+    
+}
+// console.log(matches)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // }
 

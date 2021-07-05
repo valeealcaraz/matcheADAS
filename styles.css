@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -10,15 +12,47 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url(assets/Fondo.png);
+    background-image: url(assets/fondo-3.png);
     background-size: cover;
-    background-repeat: no-repeat;
+    /* background-repeat: repeat-y; */
+}
+
+h1 {
+    font-family: 'Indie Flower', cursive;
+    font-size: 3rem;
+    margin-top: 50px;
 }
 
 .control{
     display: flex;
+    align-items: center;
+    width: 504px;
     height: 50px;
+    padding: 1rem;
     background-color: rgb(124,37,72);
+    border-radius: 20px;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.combo {
+    width: 40%;
+}
+
+.score {
+    display: flex;
+    width: 40%;
+    margin: 30px;
+    background-color: rgb(124,37,72);
+    border-radius: 5px;
+    /* position: relative;
+    top: 300px; */
+}
+
+.icons {
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .board {
@@ -28,6 +62,8 @@ body {
     background-color: rgba(124,37,72);
     display: flex;
     flex-wrap: wrap; 
+    /* position: absolute; */
+    top: 250px;
     /* -webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);*/
 }
@@ -39,6 +75,8 @@ body {
     margin: 30px;
     background-color: rgb(124,37,72);
     border-radius: 5px;
+    /* position: relative; */
+    top: 300px;
 }
 
 .flex-center50 {
