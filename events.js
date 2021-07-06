@@ -12,7 +12,7 @@ let widthUsable;
 // Esto lo declaramos como variable universal para tener el ancho de nuestro tablero disponible (que inicialmente está en el scope de la función createBoard). Antes funcionaba, ahora ya no :(
     
 const select = e => {
-    widthUsable = Math.sqrt(itemsArray.length); 
+    // widthUsable = Math.sqrt(itemsArray.length); 
     let targetContent = e.target.textContent;
     let idItem = parseInt(e.target.getAttribute("id"));
     let movAllow = [idItem-1,idItem+1,idItem-widthUsable,idItem+widthUsable];
@@ -32,9 +32,9 @@ const select = e => {
         targetsArray.push(e.target);
         
         if(movAllow.includes(firstItemId)) {
-            intercambio();
-            actualizador();
-            hMatch()
+            // intercambio();
+            // actualizador();
+            // hMatch()
             // console.log(itemsArray)
             // console.log(idItems[0])
         }

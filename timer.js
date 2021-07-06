@@ -28,35 +28,35 @@ const createChrono = () => {
     timerSpan.appendChild(timerSpanText);
 }
 
-const endGame = () => {
-    swal("Fin de la partida", "Gracias por participar", {
-        buttons: {
-            end: "Finalizar la partida",
-            again: "Jugar de nuevo",
-        },
-    })
-        .then((value) => {
-            switch (value) {
-                case "again":
-                    timerSpan.innerHTML = " "
-                    gameTime = 100;
-                    createChrono();
-                    gameCountdown();
-                    break;
-                case "end":
-                    window.close();;
-                    break;
-            }
-        });
-}
+// const endGame = () => {
+//     swal("Fin de la partida", "Gracias por participar", {
+//         buttons: {
+//             end: "Finalizar la partida",
+//             again: "Jugar de nuevo",
+//         },
+//     })
+//         .then((value) => {
+//             switch (value) {
+//                 case "again":
+//                     timerSpan.innerHTML = " "
+//                     gameTime = 100;
+//                     createChrono();
+//                     gameCountdown();
+//                     break;
+//                 case "end":
+//                     window.close();;
+//                     break;
+//             }
+//         });
+// }
 
-const gameCountdown = () => {
-    let chronometer = setInterval(() => {
-        gameTime--;
-        timerSpan.innerHTML = `${gameTime}`;
-        if (gameTime == 0) {
-            clearInterval(chronometer)
-        }
-    }, 1000);
-    setTimeout(endGame, gameTime * 1000);
-}
+// const gameCountdown = () => {
+//     let chronometer = setInterval(() => {
+//         gameTime--;
+//         timerSpan.innerHTML = `${gameTime}`;
+//         if (gameTime == 0) {
+//             clearInterval(chronometer)
+//         }
+//     }, 1000);
+//     setTimeout(endGame, gameTime * 1000);
+// }

@@ -19,8 +19,11 @@ body {
 
 h1 {
     font-family: 'Indie Flower', cursive;
-    font-size: 3rem;
-    margin-top: 50px;
+    font-size: 4rem;
+    margin-top: 30px;
+    color: transparent;
+    font-weight: 700;
+    -webkit-text-stroke: 1px rgb(124,37,72);
 }
 
 .control{

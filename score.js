@@ -9,20 +9,20 @@
 // scoreIcon.classList.add("fas");
 // scoreIcon.classList.add("fa-star");
 
-const scoreSpan = document.getElementById("score-txt");
-scoreSpan.classList.add("flex-center50");
+// const scoreSpan = document.getElementById("score-txt");
+// scoreSpan.classList.add("flex-center50");
 
-let score = 0;
-let scoreSpanText = document.createTextNode(score);
+// let score = 0;
+// let scoreSpanText = document.createTextNode(score);
 
-// document.body.appendChild(divScore);
-// divScore.appendChild(scoreIconDiv);
-// scoreIconDiv.appendChild(scoreIcon);
-// divScore.appendChild(scoreSpan);
+// // document.body.appendChild(divScore);
+// // divScore.appendChild(scoreIconDiv);
+// // scoreIconDiv.appendChild(scoreIcon);
+// // divScore.appendChild(scoreSpan);
 
-const scoreAdd = () =>{
-    score += 100
-    scoreSpan.innerHTML = `${score}`;
-}
+// const scoreAdd = () =>{
+//     score += 100
+//     scoreSpan.innerHTML = `${score}`;
+// }
 
 

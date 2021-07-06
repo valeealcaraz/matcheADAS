@@ -26,8 +26,8 @@ const start = () => {
                             break;
                     }
                     createBoard(width)
-                    createChrono()
-                    gameCountdown()
+                    // createChrono()
+                    // gameCountdown()
                 });
         })
 }

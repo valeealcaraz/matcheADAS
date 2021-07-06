@@ -1,21 +1,20 @@
 const board = document.getElementById("board");
-let itemsArray = [];
+let cols = [];
+let rows = [];
 const animals = ['🐶','🐱','🐰','🦊','🐷','🐸'];
 let width;
 
 const createBoard = width => {
     let itemWidth = 504/width;
 
-    for (let y=0 ; y<width ; y++) {
-        for(let x = 0; x < width; x++) {
-            item = document.createElement("div");
-
+    for(let row = 0; row < width; row++) {
+        for (let col = 0 ; col < width ; col++) {
+            let item = document.createElement("div");
             let animalRandom = animals[Math.floor(Math.random() * animals.length)]
             let inItem = document.createTextNode(animalRandom);
                    
             board.appendChild(item);
             item.appendChild(inItem);
-            itemsArray.push(inItem);
             
             board.classList.add("board")
             item.style.display = "flex";
@@ -24,17 +23,18 @@ const createBoard = width => {
             item.style.width = `${itemWidth}px`;
             item.style.height = `${itemWidth}px`;
             item.style.fontSize = `${itemWidth/1.5}px`;
-            // item.style.position = "relative";
-            
-            // item.setAttribute("data-value",animalRandom);
-            item.setAttribute("id",x);
-            item.dataset.x = x;
-            item.dataset.y = y;
-            item.addEventListener("click", select); 
+            item.setAttribute("id",col);
+            item.dataset.col = col;
+            item.dataset.row = row;
+            cols.push(col);
+            rows.push(row);
 
+            item.addEventListener("click", select); 
         }      
-    }   
+    }
 }
     
 createBoard()
+
+
 
