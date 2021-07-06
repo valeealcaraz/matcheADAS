@@ -14,19 +14,20 @@
     <h1>MatcheAdas</h1>
     <div class="control" id="control">
         <div id="combo" class="combo">
-            <span>Combo x1</span>
+            <div>Combo<span id="combo-txt"> x1</span></div> 
         </div>
         <div id="score" class="score">
-            <span class="score-txt">Puntos:</span>
+            <div>Puntos:<span id="score-txt">0</span></div>
         </div>
         <div class="icons">
-            <i class="fas fa-info-circle"></i>
-            <i class="fas fa-sync-alt"></i>
+            <div id="info"><i class="fas fa-info-circle"></i></div>
+            <div id="reset"><i class="fas fa-sync-alt"></i></div>
         </div>
     </div>
     <div id="board"></div>
     <div id="timer" class="timer">
-        <span></span>
+        <div><i class="fas fa-hourglass-half"></i></div>
+        <div id="timer-txt"><span>00 : 00</span></div>
     </div>
     
     

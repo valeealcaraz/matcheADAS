@@ -36,6 +36,7 @@ h1 {
     border-radius: 20px;
     color: #ffffff;
     margin-bottom: 1.5rem;
+    font-size: 20px;
 }
 
 .combo {
@@ -53,7 +54,7 @@ h1 {
 }
 
 .icons {
-    width: 10%;
+    width: 15%;
     display: flex;
     justify-content: space-between;
 }
@@ -64,22 +65,25 @@ h1 {
     border-radius: 20px;
     background-color: rgba(124,37,72);
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     /* position: absolute; */
-    top: 250px;
+    /* top: 250px; */
     /* -webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);*/
 }
 
 .timer {
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     width: 300px;
     height: 50px;
     margin: 30px;
     background-color: rgb(124,37,72);
-    border-radius: 5px;
-    /* position: relative; */
-    top: 300px;
+    border-radius: 20px;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-size: 25px;
 }
 
 .flex-center50 {

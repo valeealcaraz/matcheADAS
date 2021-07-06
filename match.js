@@ -2,7 +2,7 @@
 * 
 * COINCIDENCIAS
 * 
-*************/  
+*************/
 
 // Coincidencias Horizontales
 
@@ -10,28 +10,43 @@
 
 
 
-const hMatch = () => {        
+const hMatch = () => {
+    let items = document.getElementsByClassName("item");
+    for (let i=0; i < items.length - 2; i++) {
+        let noMatch = items[i].textContent;
+        let twoMatch = items[i + 1].textContent;
+        let threeMatch = items[i + 2].textContent;
 
-    for (let i = 0; i < width; i++) {
-        for (let j = 0 ; j < width ; j++) {
+        if(noMatch === twoMatch && noMatch === threeMatch) {            
+                items[i].textContent = " ";
+                items[i + 1].textContent = " ";
+                items[i + 2].textContent = " ";                   
+                // matches.push(noMatch,twoMatch,threeMatch)
+            }
 
-            let noMatch = item[j].textContent;
-            let twoMatch = item[j+1].textContent;
-            let threeMatch = item[j+2].textContent;
 
-            console.log(noMatch)
-
-            // if(noMatch === twoMatch && noMatch === threeMatch) {            
-            //     itemsArray[i].textContent = " ";
-            //     itemsArray[i + 1].textContent = " ";
-            //     itemsArray[i + 2].textContent = " ";                   
-            //     console.log("hay bloque horizontal");
-            //     scoreAdd()
-            //     // matches.push(noMatch,twoMatch,threeMatch)
-            // }
-        }
     }
+
+    // for (let i = 0; i < width; i++) {
+    //     for (let j = 0 ; j < width ; j++) {
+
+    //         let noMatch = item[j].textContent;
+    //         let twoMatch = item[j+1].textContent;
+    //         let threeMatch = item[j+2].textContent;
+
+
+    //         // if(noMatch === twoMatch && noMatch === threeMatch) {            
+    //         //     itemsArray[i].textContent = " ";
+    //         //     itemsArray[i + 1].textContent = " ";
+    //         //     itemsArray[i + 2].textContent = " ";                   
+    //         //     console.log("hay bloque horizontal");
+    //         //     scoreAdd()
+    //         //     // matches.push(noMatch,twoMatch,threeMatch)
+    //         // }
+    //     }
+    // }
 }
+
 
 
 // const tieneBloqueHorizontal = (matriz) => {
@@ -95,7 +110,7 @@ const hMatch = () => {
 // let fiveMatch = itemsArray[i+4].textContent;
 
 // Caso 4 coincidencias HORIZONTALES:
- 
+
 // const hMatch3 = () => {
 //     for (let i = 0; i < itemsArray.length - 2; i++) {
 //         let noMatch = itemsArray[i].textContent;
