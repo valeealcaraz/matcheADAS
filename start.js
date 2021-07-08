@@ -6,9 +6,15 @@ const showInfo = () => {
         "¡Bienvenida!",
         "En MatcheADAS tu objetivo es juntar tres o más ítems del mismo tipo, ya sea en fila o columna. Para eso selecciona un ítem, y a continuación un ítem adyacente para intercambiarlos de lugar. Si se forma un grupo, esos ítems se eliminarán y ganarás puntos. ¡Sigue armando grupos de 3 o más antes de que se acabe el tiempo!",
         {
-            buttons: "¡A jugar!",
+            buttons: {
+                play: {
+                    text: "¡A jugar!",
+                    className: "btn-swal",
+                }
+            },
         })
 }
+// *** Game Information Button ***
 const info = document.getElementById("info");
 info.addEventListener("click", showInfo)
 
@@ -19,9 +25,18 @@ info.addEventListener("click", showInfo)
 const gameLevel = () => {
     swal("Nuevo Juego", "Elige el nivel de dificultad", {
         buttons: {
-            easy: "Fácil",
-            normal: "Normal",
-            hard: "Difícil",
+            easy: {
+                text: "Fácil",
+                className: "btn-swal",
+            },
+            normal: {
+                text: "Normal",
+                className: "btn-swal",
+            },
+            hard: {
+                text: "Difícil",
+                className: "btn-swal",
+            },
         },
     })
         .then((value) => {
@@ -36,9 +51,7 @@ const gameLevel = () => {
                     var width = 7;
                     break;
             }
-            createBoard(width)
-            // createChrono()
-            // gameCountdown()
+            createBoard(width);
         });
 }
 
@@ -54,8 +67,16 @@ const resetGame = () => {
         "¡Perderás todo tu puntaje acumulado!",
         {
             buttons: {
-                resetNo: "Cancelar",
-                resetYes: "Nuevo juego",
+                resetNo: {
+                    text: "Cancelar",
+                    value: "resetNo",
+                    className: "btn-swal",
+                },
+                resetYes: {
+                    text: "Nuevo juego",
+                    value: "resetYes",
+                    className: "btn-swal",
+                },
             }
         })
         .then((value) => {
@@ -63,15 +84,18 @@ const resetGame = () => {
                 case "resetNo":
                     break;
                 case "resetYes":
-                    clearBoard()
-                    gameLevel()
+                    clearBoard();
+                    gameLevel();
                     break;
             }
         },
         );
 }
+// *** Reset Game Button ***
 const reset = document.getElementById("reset");
 reset.addEventListener("click", resetGame)
+
+
 
 // **************
 // **Start Game**
@@ -81,7 +105,12 @@ const startGame = () => {
         "¡Bienvenida!",
         "En MatcheADAS tu objetivo es juntar tres o más ítems del mismo tipo, ya sea en fila o columna. Para eso selecciona un ítem, y a continuación un ítem adyacente para intercambiarlos de lugar. Si se forma un grupo, esos ítems se eliminarán y ganarás puntos. ¡Sigue armando grupos de 3 o más antes de que se acabe el tiempo!",
         {
-            buttons: "¡A jugar!",
+            buttons: {
+                play: {
+                    text: "¡A jugar!",
+                    className: "btn-swal",
+                }
+            },
         })
         .then(() => {
             gameLevel()

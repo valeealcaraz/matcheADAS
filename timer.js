@@ -1,62 +1,55 @@
-// const divTimer = document.getElementById("timer");
-// divTimer.classList.add("display-none");
-// divTimer.classList.add("timer");
+// *********************************
+// *** Variable Settings of Timer***
+// *********************************
+let gameMinutes = 2;
+let gameSeconds = gameMinutes * 60;
+const gameTimeSpan = document.getElementById("gameTime")
 
-// const timerIconDiv = document.createElement("div");
-// timerIconDiv.classList.add("flex-center50");
-// timerIconDiv.classList.add("flex-center50");
+// ********************
+// ***End Game Alert***
+// ********************
+const endGame = () => {
+    swal("Fin de la partida", "Gracias por participar", {
+        buttons: {
+            end: {
+                text: "Finalizar la partida",
+                value: "end",
+                className: "btn-swal",
+            },
+            again: {
+                text: "Jugar de nuevo",
+                value: "again",
+                className: "btn-swal",
+            },
+        },
+    })
+        .then((value) => {
+            switch (value) {
+                case "again":
+                    
+                    window.alert("Empezar de nuevo");
+                    break;
+                case "end":
+                    window.alert("Cerrar la ventana");
+                    break;
+            }
+        });
+}
 
-// const timerIcon = document.createElement("i");
-// timerIcon.classList.add("fas");
-// timerIcon.classList.add("fa-hourglass-half");
-
-// const timerSpan = document.createElement("span");
-// timerSpan.classList.add("flex-center50");
-
-// let gameTime = 100;
-// let timerSpanText = document.createTextNode(gameTime);
-
-// document.body.appendChild(divTimer);
-// divTimer.appendChild(timerIconDiv);
-// timerIconDiv.appendChild(timerIcon);
-// divTimer.appendChild(timerSpan);
-
-
-// const createChrono = () => {
-//     divTimer.classList.remove("display-none");
-//     divScore.classList.remove("display-none");
-//     timerSpan.appendChild(timerSpanText);
-// }
-
-// const endGame = () => {
-//     swal("Fin de la partida", "Gracias por participar", {
-//         buttons: {
-//             end: "Finalizar la partida",
-//             again: "Jugar de nuevo",
-//         },
-//     })
-//         .then((value) => {
-//             switch (value) {
-//                 case "again":
-//                     timerSpan.innerHTML = " "
-//                     gameTime = 100;
-//                     createChrono();
-//                     gameCountdown();
-//                     break;
-//                 case "end":
-//                     window.close();;
-//                     break;
-//             }
-//         });
-// }
-
-// const gameCountdown = () => {
-//     let chronometer = setInterval(() => {
-//         gameTime--;
-//         timerSpan.innerHTML = `${gameTime}`;
-//         if (gameTime == 0) {
-//             clearInterval(chronometer)
-//         }
-//     }, 1000);
-//     setTimeout(endGame, gameTime * 1000);
-// }
+// ********************
+// ***Game Countdown***
+// ********************
+const gameCountdown = () => {
+    // ¡REVISAR EL CRONOMETRO PORQUE QUEDA 1 SEGUNDO DE SOBRA!
+    let chronometer = setInterval(() => {
+        let minutes = Math.floor(gameSeconds / 60);
+        let seconds = (gameSeconds % 60);
+        seconds = seconds < 10 ? "0" + seconds : seconds
+        gameTimeSpan.innerHTML = `${minutes} : ${seconds}`
+        gameSeconds--;
+        if (gameSeconds == 0) {
+            clearInterval(chronometer);
+        }
+    }, 1000);
+    setTimeout(endGame, gameSeconds * 1000);
+}
