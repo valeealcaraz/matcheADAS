@@ -1,153 +1,100 @@
-/*************
+/*********
 * 
-* COINCIDENCIAS
+*       COINCIDENCIAS
 * 
-*************/
+*********/
 
-// Coincidencias Horizontales
+// Coincidencias HORIZONTALES
 
-// Caso 3 coincidencias HORIZONTALES:
+const items = document.getElementsByClassName("item");
 
-
-
-const hMatch = () => {
-    let items = document.getElementsByClassName("item");
-    for (let i=0; i < items.length - 2; i++) {
-        let noMatch = items[i].textContent;
-        let twoMatch = items[i + 1].textContent;
-        let threeMatch = items[i + 2].textContent;
-
-        if(noMatch === twoMatch && noMatch === threeMatch) {            
-                items[i].textContent = " ";
-                items[i + 1].textContent = " ";
-                items[i + 2].textContent = " ";                   
-                // matches.push(noMatch,twoMatch,threeMatch)
+const hMatch = (width) => {
+    for (let i=0; i < width; i++) {
+        let rowItems = document.querySelectorAll(`[data-row="${i}"]`)
+        
+        
+        for (let j=0; j < rowItems.length - 2; j++) {
+            let matchOne = rowItems[j].textContent;
+            let matchTwo = rowItems[j + 1].textContent;
+            let matchThree = rowItems[j + 2].textContent;
+            
+            if(matchOne === matchTwo && matchOne === matchThree) {               
+                
+                for (let k=j; k < rowItems.length; k++) {                   
+                    if(matchOne===rowItems[k].textContent) {
+                        rowItems[k].textContent = " ";
+                    } else {
+                        break
+                    }
+                }
             }
-
-
+        }
     }
-
-    // for (let i = 0; i < width; i++) {
-    //     for (let j = 0 ; j < width ; j++) {
-
-    //         let noMatch = item[j].textContent;
-    //         let twoMatch = item[j+1].textContent;
-    //         let threeMatch = item[j+2].textContent;
-
-
-    //         // if(noMatch === twoMatch && noMatch === threeMatch) {            
-    //         //     itemsArray[i].textContent = " ";
-    //         //     itemsArray[i + 1].textContent = " ";
-    //         //     itemsArray[i + 2].textContent = " ";                   
-    //         //     console.log("hay bloque horizontal");
-    //         //     scoreAdd()
-    //         //     // matches.push(noMatch,twoMatch,threeMatch)
-    //         // }
-    //     }
-    // }
 }
 
+// Coincidencias VERTICALES
 
+const vMatch = width => {
 
-// const tieneBloqueHorizontal = (matriz) => {
-//     for (let i = 0; i < matriz.length; i++) {
-//         array = matriz[i];
-//         for (let j = 0; j < array.length; j++) {
-//             if (array[j] === array[j + 1] && array[j] === array[j + 2]) {
-//                 for (let x = j; x < array.length - j; x++) {
-//                     if (array[x] === array[x + 1]) {
-//                     }
-//                 }
-//                 return true;
-//                 // if ((array[j] === array[j + 1] && array[j] === array[j + 2] && array[j] === array[j + 3] && array[j] === array[j + 4]) ||
-//                 //     (array[j] === array[j + 1] && array[j] === array[j + 2] && array[j] === array[j + 3]) || 
-//                 //     (array[j] === array[j + 1] && array[j] === array[j + 2])) {
-//             }
-//         }
-//     }
-// }
+    for (let i = 0; i < width; i++) {
+        let colItems = document.querySelectorAll(`[data-col="${i}"]`)
+        
+        for (let j=0; j < colItems.length - 2; j++) {
 
+            let matchOne = colItems[j].textContent;
+            let matchTwo = colItems[j + 1].textContent;
+            let matchThree = colItems[j + 2].textContent;
 
+            if(matchOne === matchTwo && matchOne === matchThree) {               
+                
+                for (let k=j; k < colItems.length; k++) {                   
+                    if(matchOne===colItems[k].textContent) {
+                        colItems[k].textContent = " ";
+                    } else {
+                        break
+                    }
+                }
+            }
+        }
+    }
+}
 
-// const intercambio = () => {
-//     targetsArray[0].innerHTML = itemClicked[1];
-//     targetsArray[1].innerHTML = itemClicked[0];
-// }
+/**************
+* 
+*       RELLENAR ESPACIOS VACÍOS 
+* 
+**************/
 
-// const actualizador = () => {
-//     console.log('test', targetsArray[0], targetsArray[0].id);
+const fill = width => {
+    //Recorremos el tablero de atrás para adelante
+    for (let i = width ; i >= 0; i--) {
+        // Capturamos en un array todos los data-col
+        let colItems = document.querySelectorAll(`[data-col="${i}"]`)
+    //     // Iteramos las columnas de a una
+        for (let j=colItems.length - 1; j >= 0; j--) {
+            let emptyItem = colItems[j].textContent;
+            // si uno de los elementos está vacīo
+            if(emptyItem === " ") {  
+                // comenzamos a iterar 
+                for (let k=j; k > colItems.length - j; k--) { 
+                    console.log("funciona")                                           
+                    if(colItems[k] !== " ") {
+                        console.log("if2")
 
-//     for(let i = 0; i < itemsArray.length; i = i + 8) {
-//         for(let j = i; j < 8; j++) {
-//             console.log(itemsArray[i][j])
-//         }
-//         console.log('---------------------------');
-//     }
-//     /*for(let i=0 ; i<itemsArray.length ; i++){
-//         if(targetsArray[0])
-//     }*/
-//     itemsArray.splice(itemsArray[idItems[0]],2,targetsArray[0],targetsArray[1]);
-// }
+                        colItems[k].textContent = emptyItem;
+                        emptyItem = colItems[k].textContent;
+                    } else {
+                        break
+                    }
+                }
 
+            // } else {
+            //     break
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-// }
-
-// //noMatch === twoMatch && noMatch === threeMatch && noMatch === fourMatch && noMatch === fiveMatch  || 
-// noMatch === twoMatch && noMatch === threeMatch && noMatch === fourMatch || 
-// let fourMatch = itemsArray[i+3].textContent;
-// let fiveMatch = itemsArray[i+4].textContent;
-
-// Caso 4 coincidencias HORIZONTALES:
-
-// const hMatch3 = () => {
-//     for (let i = 0; i < itemsArray.length - 2; i++) {
-//         let noMatch = itemsArray[i].textContent;
-//         let twoMatch = itemsArray[i + 1].textContent;
-//         let threeMatch = itemsArray[i + 2].textContent;
-//         // let fourMatch = itemsArray[i+3].textContent;
-//         // let fiveMatch = itemsArray[i+4].textContent;
-
-//         if ( //noMatch === twoMatch && noMatch === threeMatch && noMatch === fourMatch && noMatch === fiveMatch  || 
-//             // noMatch === twoMatch && noMatch === threeMatch && noMatch === fourMatch || 
-//             noMatch === twoMatch && noMatch === threeMatch) {
-//             scoreAdd()
-//             console.log("hay bloque horizontal");
-//             noMatch = " ";
-//             twoMatch = " ";
-//             threeMatch = " ";
-//         }
-//     }
-// }
-
-
-
-
-
-// const vMatch = () => {
-
-//     for (let i = 0; i < itemsArray.length - 14; i++) {
-//         let firstColumn = itemsArray[i].getAttribute("data-value");
-//         let secondColumn = itemsArray[i + 7].getAttribute("data-value");
-//         let thirdColumn = itemsArray[i + 14].getAttribute("data-value");
-
-//         if (firstColumn === secondColumn && firstColumn === thirdColumn) {
-//             scoreAdd()
-//             console.log("hay bloque vertical");
-//             firstColumn = " ";
-//             secondColumn = " ";
-//             thirdColumn = " ";
-//         }
-//     }
-// }
+                // console.log(colItems[j])
+                
+            
+        }
+    }
+}

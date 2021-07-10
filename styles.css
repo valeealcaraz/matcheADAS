@@ -5,6 +5,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
+    transition: all 400ms ease;
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    -ms-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
 }
 
 body {
@@ -66,7 +71,7 @@ h1 {
     background-color: rgba(124,37,72);
     display: flex;
     flex-wrap: wrap;
-    /* position: absolute; */
+    position: relative;
     /* top: 250px; */
     /* -webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);*/
@@ -97,9 +102,9 @@ h1 {
 
 .selected {
     border: 2px;
-    border-color: red;
+    border-color: antiquewhite;
     border-style: solid;
-    border-radius: 2px;
+    border-radius: 10px;
 }
 
 .display-none{
@@ -108,4 +113,8 @@ h1 {
 
 .btn-swal{
     background-color:rgb(124,37,72);
+}
+
+#score{
+    margin-left: 10px;
 }

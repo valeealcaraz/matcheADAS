@@ -21,13 +21,13 @@ const gameLevel = () => {
         .then((value) => {
             switch (value) {
                 case "easy":
-                    var width = 9;
+                    width = 9;
                     break;
                 case "normal":
-                    var width = 8;
+                    width = 8;
                     break;
                 case "hard":
-                    var width = 7;
+                    width = 7;
                     break;
             }
             createBoard(width);
