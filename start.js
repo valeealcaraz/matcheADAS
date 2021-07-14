@@ -1,3 +1,7 @@
+// *** Control and Timer Divs ***
+const control = document.getElementById("control");
+const timer = document.getElementById("timer");
+
 // *********************
 // **Select Game Level**
 // *********************
@@ -33,6 +37,9 @@ const gameLevel = () => {
             createBoard(width);
             gameCountdown();
             endCountdown();
+            control.classList.remove("display-none");
+            timer.classList.remove("display-none");
+            board.classList.remove("display-none");
         });
 }
 
@@ -86,6 +93,9 @@ const resetGame = () => {
                     gameContinue();
                     break;
                 case "resetYes":
+                    control.classList.add("display-none");
+                    timer.classList.add("display-none");
+                    board.classList.add("display-none");
                     clearBoard();
                     clearTimer();
                     gameLevel();
@@ -140,9 +150,8 @@ const startGame = () => {
             },
         })
         .then(() => {
-            gameLevel()
+            gameLevel();
         },
         );
 }
 startGame()
-
